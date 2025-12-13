@@ -20,6 +20,7 @@ model User {
   name     String?
   createdAt DateTime @default(now())
   
+  avatar    String   @default("https://api.dicebear.com/7.x/avataaars/svg?seed=Felix")
   // Relations: A user has many of these
   subscriptions Subscription[]
   bills         Bill[]
@@ -49,8 +50,9 @@ model Bill {
   name        String   // "Electricity", "Rent"
   amount      Float    // Put the AVERAGE or EXPECTED amount here
 
-  
+  billingCycle    String?   // "MONTHLY"
   day      DateTime      // e.g. 5 (Means due on the 5th of every month)
+  nextBillingDate DateTime? 
   description String?
   
   // Relation: One Bill definition can have many payment history records

@@ -56,9 +56,9 @@ export default async function SubscriptionPage()
 
         {/* Start Date */}
         <div>
-          <label className="block text-sm font-bold text-gray-700 mb-1">First Payment Date</label>
+          <label className="block text-sm font-bold text-gray-700 mb-1">Next Payment Date</label>
           <input 
-            name="startDate" 
+            name="nextDate" 
             type="date" 
             className="w-full border border-gray-300 p-2 rounded text-black" 
             required 
@@ -69,8 +69,6 @@ export default async function SubscriptionPage()
           Add Subscription
         </button>
       </form>
-
-
     </div>
   )
 }

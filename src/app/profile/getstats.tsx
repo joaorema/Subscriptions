@@ -5,6 +5,24 @@ import { revalidatePath } from "next/cache";
 import { redirect } from 'next/navigation'
 import prisma from "@/lib/prisma";
 
+
+export async function updateAvatar(formData: FormData) 
+{
+  const newAvatarUrl = formData.get('avatarUrl') as string;
+  
+  const cookieStore = await cookies();
+  const userId = cookieStore.get("userId")?.value;
+
+  if (!userId || !newAvatarUrl) return;
+
+  await prisma.user.update({
+    where: { id: userId },
+    data: { avatar: newAvatarUrl }
+  });
+
+  revalidatePath('/profile'); // Refresh the profile page
+}
+
 export async function getStats() 
 {
     const cookieStore = await cookies();

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/header";
-import Footer from "../components/footer";
+import Footer from "../components/footer"; // Assuming you have this
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,12 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-200`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-200 text-gray-900 font-mono`}
       >
-        <div className="flex flex-col min-h-screen max-w-[1500px] mx-auto bg-white text-mono">
-
-        <Navbar></Navbar>
-        {children}
+        <div className="flex flex-col min-h-screen max-w-[1500px] mx-auto bg-white shadow-2xl">
+          
+          <Navbar />
+          <main className="flex-1 w-full px-4 md:px-8 py-6">
+            {children}
+          </main>
         </div>
       </body>
     </html>
