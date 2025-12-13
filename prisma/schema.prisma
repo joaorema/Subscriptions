@@ -1,0 +1,79 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       String @id @default(cuid())
+  email    String @unique
+  password String
+  name     String?
+  createdAt DateTime @default(now())
+  
+  // Relations: A user has many of these
+  subscriptions Subscription[]
+  bills         Bill[]
+  expenses      Expense[]
+}
+
+// 1. FOR FUN STUFF (Fixed price, auto-renew)
+model Subscription {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id]) // Relation to User
+  
+  name            String   // "Netflix"
+  price           Float
+  billingCycle    String   // "MONTHLY"
+  startDate       DateTime
+  nextBillingDate DateTime 
+  active          Boolean  @default(true)
+}
+
+// 2. FOR HOUSE BILLS (Rent, Water, Electricity)
+model Bill {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  
+  name        String   // "Electricity", "Rent"
+  amount      Float    // Put the AVERAGE or EXPECTED amount here
+
+  
+  day      DateTime      // e.g. 5 (Means due on the 5th of every month)
+  description String?
+  
+  // Relation: One Bill definition can have many payment history records
+  paymentHistory Expense[] 
+}
+
+// 3. THE HISTORY (Where money actually moves)
+model Expense {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+
+  name      String
+  price     Float
+  date      DateTime @default(now())
+  category  String
+  
+  // Optional: Link this expense to a Bill
+  // If I pay my Electricity, I link it here. 
+  // If I buy a sandwich, this stays null.
+  billId    String? 
+  bill      Bill?    @relation(fields: [billId], references: [id])
+}
+
+
+

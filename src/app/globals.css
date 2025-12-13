@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+.bg-bg1{
+    background: linear-gradient(
+        135deg,
+        #0a0a1a 0%, 
+        #0d1326 25%, 
+        #0b0f24 50%, 
+        #141233 75%, 
+        #1b1760 100%
+    );
+}
+
+.bg-bg2 {
+  background: linear-gradient(
+    135deg,
+    #1e0f3d 0%,   /* deep purple */
+    #3b1f71 50%,  /* violet-blue */
+    #1b2a4a 100%  /* dark ocean blue */
+  );
+}
+
+.bg-bg3 {
+  background: linear-gradient(
+    135deg,
+    #2c003e 0%,   /* dark purple */
+    #6b1fa0 50%,  /* vivid magenta */
+    #ff5e7a 100%  /* soft coral-pink */
+  );
+}
+
+.bg-bg4 {
+  background: linear-gradient(
+    160deg,
+    #0c0c1b 0%,
+    #14142e 40%,
+    #1f1f4a 70%,
+    #2c2c78 100%
+  );
+}
+
+.bg-bg5 {
+  background: linear-gradient(
+    120deg,
+    #014d4d 0%,
+    #026666 50%,
+    #028c8c 100%
+  );
+}
+
+.bg-bg6 {
+  background: linear-gradient(
+    135deg,
+    #1b0a2e 0%,
+    #3d0d55 50%,
+    #5f1b77 100%
+  );
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+}
