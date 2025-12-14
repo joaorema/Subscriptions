@@ -50,40 +50,40 @@ export default async function ProfilePage() {
 
           {/* Details Section */}
           <div className="space-y-4">
-            <div className="flex justify-between items-center py-2">
-              <span className="text-gray-600 font-medium">Member Since</span>
-              <span className="text-gray-900 font-semibold">{date}</span>
-            </div>
             
             <div className="flex justify-between items-center py-2">
               <span className="text-gray-600 font-medium">Total Bills</span>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
-                {userData.billCount}
+                {userData.billCount}€
               </span>
             </div>
             <div className="flex justify-between items-center py-2">
               <span className="text-gray-600 font-medium">Total Subscriptions</span>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
-                {userData.subsCount}
+                {userData.subsCount}€
               </span>
             </div>
             <div className="flex justify-between items-center py-2">
               <span className="text-gray-600 font-medium">Total Bills Amount</span>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
-                {userData.totalBills.toFixed(2)}
+                {userData.totalBills.toFixed(2)}€
               </span>
             </div>
             <div className="flex justify-between items-center py-2">
               <span className="text-gray-600 font-medium">Total Subscriptions Amount</span>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
-                {userData.totalSubs.toFixed(2)}
+                {userData.totalSubs.toFixed(2)}€
               </span>
             </div>
             <div className="flex justify-between items-center py-2">
               <span className="text-gray-600 font-medium">Total Money Spent</span>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
-                {userData.grandTotal.toFixed(2)}
+                {userData.grandTotal.toFixed(2)}€
               </span>
+            </div>
+            <div className="flex justify-between items-center py-2">
+              <span className="text-gray-600 font-medium">Member Since</span>
+              <span className="text-gray-600 ">{date}</span>
             </div>
           </div>
 

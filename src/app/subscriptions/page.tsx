@@ -45,11 +45,11 @@ export default async function SubscriptionPage()
           </div>
           
           <div className="w-1/2">
-            <label className="block text-sm font-bold text-gray-700 mb-1">Cycle</label>
+            <label className="block text-sm font-mono text-gray-700 mb-1">Cycle</label>
             <select name="billingCycle" className="w-full border border-gray-300 p-2 rounded text-black">
-              <option value="Monthly">Monthly</option>
-              <option value="Yearly">Yearly</option>
-              <option value="Weekly">Weekly</option>
+              <option value="Monthly" className='font-mono text-gray-700'>Monthly</option>
+              <option value="Yearly" className='font-mono text-gray-700'>Yearly</option>
+              <option value="Weekly" className='font-mono text-gray-700'>Weekly</option>
             </select>
           </div>
         </div>

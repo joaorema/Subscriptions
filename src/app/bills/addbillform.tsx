@@ -23,11 +23,11 @@ export default function AddBillForm() {
   return (
     <form
       action={addbill}
-      className="bg-white p-8 rounded-lg shadow-md w-full max-w-md flex flex-col gap-4"
+      className="bg-white p-8 rounded-lg shadow-md w-full max-w-md flex flex-col gap-4 font-mono"
     >
       {/* Name Input */}
       <div>
-        <label className="block text-sm font-bold text-gray-700 mb-1">
+        <label className="block text-sm font-mono font-bold text-gray-700 mb-1">
           Bill Type
         </label>
         <select
@@ -35,7 +35,7 @@ export default function AddBillForm() {
           value={category}
           // Update state when user changes selection
           onChange={(e) => setCategory(e.target.value)}
-          className="w-full border border-gray-300 p-2 rounded text-black bg-white"
+          className="w-full border border-gray-300 p-2 rounded font-mono text-gray-700 bg-white"
         >
           <option value="Water">Water</option>
           <option value="Light">Light</option>
@@ -56,7 +56,7 @@ export default function AddBillForm() {
       <div className="flex gap-4">
         {/* Price - Grows to full width if Cycle is hidden */}
         <div className={shouldShowCycle ? "w-1/2" : "w-full"}>
-          <label className="block text-sm font-bold text-gray-700 mb-1">
+          <label className="block text-sm font-mono font-bold text-gray-700 mb-1">
             Price
           </label>
           <input
@@ -72,7 +72,7 @@ export default function AddBillForm() {
         {/* Cycle - Only shown for specific categories */}
         {shouldShowCycle && (
           <div className="w-1/2 animate-in fade-in slide-in-from-left-2 duration-300">
-            <label className="block text-sm font-bold text-gray-700 mb-1">
+            <label className="block text-sm font-mono text-gray-700 mb-1">
               Cycle
             </label>
             <select

@@ -24,7 +24,7 @@ export default function NavbarClient({ isLoggedIn }: { isLoggedIn: boolean }) {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
       
-          <Link href="/" className="text-xl text-gray-700 hover:text-blue-600 hover:bg-gray-50" >
+          <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium hover:bg-gray-50" >
             Home
           </Link>
 

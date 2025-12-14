@@ -93,27 +93,27 @@ export default async function DashboardPage()
           {/* Card 1: Total Spent */}
           <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-zinc-600">
              <div className="text-gray-500 text-sm font-bold uppercase">Total Spent</div>
-             <div className="text-3xl font-bold text-gray-800 mt-2">€{grandTotal.toFixed(2)}</div>
+             <div className="text-3xl font-mono text-gray-800 mt-2">€{grandTotal.toFixed(2)}</div>
           </div>
 
 
           {/* Card 2: Active Subs Count */}
           <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-600">
              <div className="text-gray-500 text-sm font-bold uppercase">Active Subs</div>
-             <div className="text-3xl font-bold text-gray-800 mt-2">{subs.length}</div>
+             <div className="text-3xl font-mono text-gray-800 mt-2">{subs.length}</div>
           </div>
           {/* Card 3: NEXT SUBSCRIPTION (Replaced 'Bills Count') */}
           <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-600">
-             <div className="text-gray-500 text-sm font-bold uppercase">Next Payment</div>
+             <div className="text-gray-500 text-sm font-mono uppercase">Next Payment</div>
              
              {nextUp ? (
                 <div className="mt-2">
-                    <div className="text-2xl font-bold text-gray-800 truncate">{nextUp.name}</div>
+                    <div className="text-2xl font-mono font-bold text-gray-800 truncate">{nextUp.name}</div>
                     <div className="flex justify-between items-end mt-1">
-                        <span className="text-xs font-bold bg-blue-100 text-blue-700 px-2 py-1 rounded">
+                        <span className="text-xs font-mono text-gray-800 px-2 py-1 rounded">
                             {nextUp.nextBillingDate.toLocaleDateString('en-GB')}
                         </span>
-                        <span className="text-xl font-bold text-gray-900">€{nextUp.price.toFixed(2)}</span>
+                        <span className="font-mono text-gray-800 font-bold">€{nextUp.price.toFixed(2)}</span>
                     </div>
                 </div>
              ) : (
@@ -136,40 +136,40 @@ export default async function DashboardPage()
                 <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow">
                     <div className="text-3xl">🏠</div>
                     <div className="text-gray-500 text-xs font-bold uppercase">Rent</div>
-                    <div className="text-xl font-extrabold text-gray-800">€{totalrent.toFixed(2)}</div>
+                    <div className="text-xl font-mono text-gray-800">€{totalrent.toFixed(2)}</div>
                 </div>
 
                 {/* 2. WATER */}
                 <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow">
                     <div className="text-3xl">💧</div>
                     <div className="text-gray-500 text-xs font-bold uppercase">Water</div>
-                    <div className="text-xl font-extrabold text-gray-800">€{totalWater.toFixed(2)}</div>
+                    <div className="text-xl font-mono text-gray-800">€{totalWater.toFixed(2)}</div>
                 </div>
 
                 {/* 3. LIGHT */}
                 <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow">
                     <div className="text-3xl">⚡</div>
                     <div className="text-gray-500 text-xs font-bold uppercase">Light</div>
-                    <div className="text-xl font-extrabold text-gray-800">€{totalLight.toFixed(2)}</div>
+                    <div className="text-xl font-mono text-gray-800">€{totalLight.toFixed(2)}</div>
                 </div>
 
                 {/* 4. INTERNET */}
                 <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow">
                     <div className="text-3xl">🌐</div>
                     <div className="text-gray-500 text-xs font-bold uppercase">Internet</div>
-                    <div className="text-xl font-extrabold text-gray-800">€{totalInternet.toFixed(2)}</div>
+                    <div className="text-xl font-mono text-gray-800">€{totalInternet.toFixed(2)}</div>
                 </div>
                 {/* 5. Groceries */}
                 <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow">
                     <div className="text-3xl">🛒</div>
                     <div className="text-gray-500 text-xs font-bold uppercase">Groceries</div>
-                    <div className="text-xl font-extrabold text-gray-800">€{totalGroceries.toFixed(2)}</div>
+                    <div className="text-xl font-mono text-gray-800">€{totalGroceries.toFixed(2)}</div>
                 </div>
                 {/* 6. Insurance */}
                 <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow">
                     <div className="text-3xl">🏥</div>
                     <div className="text-gray-500 text-xs font-bold uppercase">Insurance</div>
-                    <div className="text-xl font-extrabold text-gray-800">€{totalinsurance.toFixed(2)}</div>
+                    <div className="text-xl font-mono text-gray-800">€{totalinsurance.toFixed(2)}</div>
                 </div>
             </div>
         </div>

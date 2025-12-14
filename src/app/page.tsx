@@ -34,39 +34,45 @@ export default async function Home() {
         <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 max-w-md w-full font-mono">
           {/* 1. Header & Greeting */}
           <div className="mb-6 border-b border-gray-100 pb-4 text-center font-mono">
-            <h2 className="text-2xl font-bold text-gray-800 mt-1 font-mono">
+            <h2 className="text-2xl text-gray-800 mt-1 font-mono">
               Welcome Back
-              <p>{name} </p>
+              <p>{name}!</p>
             </h2>
           </div>
           {/* 3. Primary Actions */}
           <div className="flex flex-col gap-3 font-mono">
             <Link
               href="/profile"
-              className="flex justify-center font-mono items-center w-full py-3 px-4 text-black font-medium rounded-lg transition-all shadow-sm hover:text-blue-600 hover:shadow-md"
+              className="flex justify-center font-mono items-center w-full py-3 px-4 text-gray-800 font-medium rounded-lg transition-all shadow-sm hover:text-blue-600 hover:shadow-md"
             >
-              Go to Profile
+              Profile
             </Link>
 
             <Link
               href="/dashboard"
-              className="flex hover:text-blue-600 justify-center items-center w-full py-3 px-4 text-black font-medium rounded-lg transition-all shadow-sm hover:shadow-md"
+              className="flex hover:text-blue-600 justify-center items-center w-full py-3 px-4 text-gray-800 font-medium rounded-lg transition-all shadow-sm hover:shadow-md"
             >
-              Go to Dashboard
+              Dashboard
+            </Link>
+            <Link
+              href="/search"
+              className="flex justify-center hover:text-blue-600 items-center w-full py-3 px-4 text-gray-800 font-medium rounded-lg transition-all shadow-sm hover:shadow-md"
+            >
+              Search
             </Link>
 
             <Link
               href="/bills"
-              className="flex hover:text-blue-600 justify-center items-center w-full py-3 px-4 text-black font-medium rounded-lg transition-all shadow-sm hover:shadow-md"
+              className="flex hover:text-blue-600 justify-center items-center w-full py-3 px-4 text-gray-800 font-medium rounded-lg transition-all shadow-sm hover:shadow-md"
             >
-              Add New Bill
+              New Bill
             </Link>
 
             <Link
               href="/subscriptions"
-              className="flex justify-center hover:text-blue-600 items-center w-full py-3 px-4 text-black font-medium rounded-lg transition-all shadow-sm hover:shadow-md"
+              className="flex justify-center hover:text-blue-600 items-center w-full py-3 px-4 text-gray-800 font-medium rounded-lg transition-all shadow-sm hover:shadow-md"
             >
-              Add New Subscription
+              New Subscription
             </Link>
           </div>
           <div className="mt-auto pt-10">
