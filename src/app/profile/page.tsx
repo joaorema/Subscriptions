@@ -57,31 +57,31 @@ export default async function ProfilePage() {
             <div className="flex justify-between items-center py-2">
               <span className="text-gray-600 font-medium">Total Bills</span>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
-                {userData.billCount}
+                {userData.billCount.toFixed(2)}
               </span>
             </div>
             <div className="flex justify-between items-center py-2">
               <span className="text-gray-600 font-medium">Total Subscriptions</span>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
-                {userData.subsCount}
+                {userData.subsCount.toFixed(2)}
               </span>
             </div>
             <div className="flex justify-between items-center py-2">
               <span className="text-gray-600 font-medium">Total Bills Amount</span>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
-                {userData.totalBills}
+                {userData.totalBills.toFixed(2)}
               </span>
             </div>
             <div className="flex justify-between items-center py-2">
               <span className="text-gray-600 font-medium">Total Subscriptions Amount</span>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
-                {userData.totalSubs}
+                {userData.totalSubs.toFixed(2)}
               </span>
             </div>
             <div className="flex justify-between items-center py-2">
               <span className="text-gray-600 font-medium">Total Money Spent</span>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
-                {userData.grandTotal}
+                {userData.grandTotal.toFixed(2)}
               </span>
             </div>
           </div>

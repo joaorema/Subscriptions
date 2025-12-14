@@ -5,7 +5,7 @@ import { addbill } from "./addbill";
 
 export default function AddBillForm() {
   // 1. Track the selected option
-  const [category, setCategory] = useState("Water");
+  const [category, setCategory] = useState("");
 
   // 2. Define which options show the Cycle
   const showCycleOptions = [

@@ -26,6 +26,25 @@ export default async function DashboardPage()
     orderBy:{ day: 'desc' }
   });
 
+  const light = await prisma.bill.findMany({
+    where:{ userId: userId, name:"Light" },
+    orderBy:{ day: 'desc' }
+  });
+
+  const water = await prisma.bill.findMany({
+    where:{ userId: userId, name:"Water" },
+    orderBy:{ day: 'desc' }
+  });
+
+  const groceries = await prisma.bill.findMany({
+    where:{ userId: userId, name:"Groceries" },
+    orderBy:{ day: 'desc' }
+  });
+
+  const Insurance = await prisma.bill.findMany({
+    where:{ userId: userId, name:"Insurance" },
+    orderBy:{ day: 'desc' }
+  });
   const subs = await prisma.subscription.findMany({
     where:{ userId: userId },
     orderBy: { nextBillingDate: 'desc' }
@@ -45,7 +64,8 @@ export default async function DashboardPage()
     return Math.max(...categoryBills.map(b => b.amount));
   }
 
-  //const nextRent = rent
+  //const nextRent = ren
+
   const maxWater = getMaxAmount("Water");
   const maxLight = getMaxAmount("Light");
   const maxInternet = getMaxAmount("Internet");
@@ -53,6 +73,10 @@ export default async function DashboardPage()
   const maxInsurance = getMaxAmount("Insurance");
 
   // 4. Totals
+  const totalGroceries = groceries.reduce((sum, item) => sum + item.amount, 0);
+  const totalinsurance = Insurance.reduce((sum, item) => sum + item.amount, 0);
+  const totalWater = water.reduce((sum, item) => sum + item.amount, 0);
+  const totalLight = light.reduce((sum, item) => sum + item.amount, 0);
   const totalInternet = internet.reduce((sum, item) => sum + item.amount, 0);
   const totalrent = rent.reduce((sum, item) => sum + item.amount, 0);
   const totalBills = bills.reduce((sum, item) => sum + item.amount, 0);
@@ -60,7 +84,7 @@ export default async function DashboardPage()
   const grandTotal = totalBills + totalSubs;
 
   return (
-    <div className='min-h-screen bg-gray-50 py-12 px-4 flex flex-col items-center font-mono'>
+    <div className='min-h-screen bg-gray-50 py-20 px-4 flex flex-col items-center font-mono'>
       
       {/* TOP SUMMARY CARDS */}
       <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
@@ -71,7 +95,13 @@ export default async function DashboardPage()
              <div className="text-3xl font-bold text-gray-800 mt-2">€{grandTotal.toFixed(2)}</div>
           </div>
 
-          {/* Card 2: NEXT SUBSCRIPTION (Replaced 'Bills Count') */}
+
+          {/* Card 2: Active Subs Count */}
+          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-600">
+             <div className="text-gray-500 text-sm font-bold uppercase">Active Subs</div>
+             <div className="text-3xl font-bold text-gray-800 mt-2">{subs.length}</div>
+          </div>
+          {/* Card 3: NEXT SUBSCRIPTION (Replaced 'Bills Count') */}
           <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-600">
              <div className="text-gray-500 text-sm font-bold uppercase">Next Payment</div>
              
@@ -89,12 +119,6 @@ export default async function DashboardPage()
                 <div className="text-xl font-bold text-gray-400 mt-2">None upcoming</div>
              )}
           </div>
-
-          {/* Card 3: Active Subs Count */}
-          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-600">
-             <div className="text-gray-500 text-sm font-bold uppercase">Active Subs</div>
-             <div className="text-3xl font-bold text-gray-800 mt-2">{subs.length}</div>
-          </div>
       </div>
 
       {/* MAIN CONTENT GRID */}
@@ -103,7 +127,7 @@ export default async function DashboardPage()
         {/* LEFT SIDE: HOUSE TOTALS */}
         <div>
             <h2 className="text-xl font-bold mb-4 text-gray-800 flex items-center gap-2">
-                House Max
+                House Total
             </h2>
             
             <div className="grid grid-cols-2 gap-4">
@@ -118,14 +142,14 @@ export default async function DashboardPage()
                 <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow">
                     <div className="text-3xl">💧</div>
                     <div className="text-gray-500 text-xs font-bold uppercase">Water</div>
-                    <div className="text-xl font-extrabold text-gray-800">€{maxWater.toFixed(2)}</div>
+                    <div className="text-xl font-extrabold text-gray-800">€{totalWater.toFixed(2)}</div>
                 </div>
 
                 {/* 3. LIGHT */}
                 <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow">
                     <div className="text-3xl">⚡</div>
                     <div className="text-gray-500 text-xs font-bold uppercase">Light</div>
-                    <div className="text-xl font-extrabold text-gray-800">€{maxLight.toFixed(2)}</div>
+                    <div className="text-xl font-extrabold text-gray-800">€{totalLight.toFixed(2)}</div>
                 </div>
 
                 {/* 4. INTERNET */}
@@ -138,13 +162,13 @@ export default async function DashboardPage()
                 <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow">
                     <div className="text-3xl">🛒</div>
                     <div className="text-gray-500 text-xs font-bold uppercase">Groceries</div>
-                    <div className="text-xl font-extrabold text-gray-800">€{maxGroceries.toFixed(2)}</div>
+                    <div className="text-xl font-extrabold text-gray-800">€{totalGroceries.toFixed(2)}</div>
                 </div>
                 {/* 6. Insurance */}
                 <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-shadow">
                     <div className="text-3xl">🏥</div>
                     <div className="text-gray-500 text-xs font-bold uppercase">Insurance</div>
-                    <div className="text-xl font-extrabold text-gray-800">€{maxInsurance.toFixed(2)}</div>
+                    <div className="text-xl font-extrabold text-gray-800">€{totalinsurance.toFixed(2)}</div>
                 </div>
             </div>
         </div>
