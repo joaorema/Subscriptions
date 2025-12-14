@@ -9,7 +9,7 @@ export async function addbill(formData: FormData)
     // 1. Get the mandatory fields
     const service = formData.get('name') as string;
     const pricestr = formData.get('price') as string;
-    const datestr = formData.get('date') as string; // This is the "Payment Date" from the form
+    const datestr = formData.get('date') as string; 
     const description = formData.get('description') as string;
     
     // 2. Get the optional Cycle field
@@ -54,11 +54,10 @@ export async function addbill(formData: FormData)
             day: date,
             userId: userId,
             description: description,
-            // Pass the calculated variables (value or null)
             billingCycle: finalCycle,
             nextBillingDate: finalNextDate
         },
     })
 
-    revalidatePath('/bills') // or '/dashboard'
+    revalidatePath('/bills') 
 }

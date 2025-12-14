@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link"; 
 
-export default function NavbarClient({ isLoggedIn }: { isLoggedIn: boolean }) {
+export default function NavbarClient({ isLoggedIn }: { isLoggedIn: boolean }) 
+{
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {

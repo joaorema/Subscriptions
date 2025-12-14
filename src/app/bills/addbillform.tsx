@@ -3,12 +3,12 @@
 import React, { useState } from "react";
 import { addbill } from "./addbill";
 
-export default function AddBillForm() {
-  // 1. Track the selected option
+export default function AddBillForm() 
+{
+  
   const [category, setCategory] = useState("");
-
-  // 2. Define which options show the Cycle
-  const showCycleOptions = [
+  const showCycleOptions = 
+  [
     "Rent",
     "Water",
     "Light",
@@ -33,7 +33,6 @@ export default function AddBillForm() {
         <select
           name="name"
           value={category}
-          // Update state when user changes selection
           onChange={(e) => setCategory(e.target.value)}
           className="w-full border border-gray-300 p-2 rounded font-mono text-gray-700 bg-white"
         >
@@ -53,9 +52,9 @@ export default function AddBillForm() {
         </select>
       </div>
 
-      {/* Price & Cycle Row */}
+   
       <div className="flex gap-4">
-        {/* Price - Grows to full width if Cycle is hidden */}
+      
         <div className={shouldShowCycle ? "w-1/2" : "w-full"}>
           <label className="block text-sm font-mono font-bold text-gray-700 mb-1">
             Price
@@ -70,7 +69,7 @@ export default function AddBillForm() {
           />
         </div>
 
-        {/* Cycle - Only shown for specific categories */}
+       
         {shouldShowCycle && (
           <div className="w-1/2 animate-in fade-in slide-in-from-left-2 duration-300">
             <label className="block text-sm font-mono text-gray-700 mb-1">
@@ -88,7 +87,6 @@ export default function AddBillForm() {
         )}
       </div>
 
-      {/* Start Date */}
       <div>
         <label className="block text-sm font-bold text-gray-700 mb-1">
           Payment Date
@@ -101,7 +99,6 @@ export default function AddBillForm() {
         />
       </div>
 
-      {/* Description */}
       <div>
         <label className="block text-sm font-bold text-gray-700 mb-1">
           Description

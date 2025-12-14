@@ -32,7 +32,7 @@ export async function loginAction(prevState: any, formData: FormData) {
   });
 
   if (!existingUser) {
-    return { message: "❌ User not found! Check your details." };
+    return { message: "User not found!" };
   }
 
   const cookieStore = await cookies();

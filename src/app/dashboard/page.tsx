@@ -58,14 +58,12 @@ export default async function DashboardPage()
       )
     : null;
 
-  // 3. Helper for Max Amounts
+  // Helper for Max Amounts
   function getMaxAmount(categoryName: string) {
     const categoryBills = bills.filter(b => b.name === categoryName);
     if (categoryBills.length === 0) return 0;
     return Math.max(...categoryBills.map(b => b.amount));
   }
-
-  //const nextRent = ren
 
   const maxWater = getMaxAmount("Water");
   const maxLight = getMaxAmount("Light");

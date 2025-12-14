@@ -14,7 +14,6 @@ const PLACEHOLDERS = [
   "https://api.dicebear.com/7.x/micah/svg?seed=Panther",
   "https://api.dicebear.com/7.x/micah/svg?seed=Owl",
   "https://api.dicebear.com/7.x/micah/svg?seed=Falcon",
-
   "https://api.dicebear.com/7.x/micah/svg?seed=Apollo",
   "https://api.dicebear.com/7.x/micah/svg?seed=Nova",
   "https://api.dicebear.com/7.x/micah/svg?seed=Atlas",
@@ -25,6 +24,7 @@ const PLACEHOLDERS = [
   "https://api.dicebear.com/7.x/micah/svg?seed=Shadow",
   "https://api.dicebear.com/7.x/micah/svg?seed=Comet",
   "https://api.dicebear.com/7.x/micah/svg?seed=Blaze",
+  
 ];
 
 export default function AvatarEditor({

@@ -150,7 +150,7 @@ export default function SearchPage() {
                               "Are you sure you want to delete this bill?"
                             )
                           ) {
-                            e.preventDefault(); // Stop the form if they click Cancel
+                            e.preventDefault();
                           }
                         }}
                       >

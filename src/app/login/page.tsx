@@ -1,14 +1,14 @@
 'use client' 
 
 import { useFormState } from 'react-dom'
-import { loginAction } from './loginuser' // We will create this file next
+import { loginAction } from './loginuser'
 
 const initialState = {
   message: '',
 }
 
 export default function LoginPage() {
-  // 2. This hook connects the Server Action to our UI state
+ 
   const [state, formAction] = useFormState(loginAction, initialState)
 
   return (
@@ -39,7 +39,7 @@ export default function LoginPage() {
           Login
         </button>
 
-        {/* 3. Display the error message here */}
+        {/* Display the error message here */}
         {state?.message && (
           <p className="text-red-500 text-sm font-bold text-center mt-2">
             {state.message}

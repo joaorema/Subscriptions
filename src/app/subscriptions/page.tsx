@@ -8,7 +8,7 @@ export default async function SubscriptionPage()
   
 
   const subscriptions = await prisma.subscription.findMany({
-    orderBy: { startDate: 'desc' } // Shows newest first
+    orderBy: { startDate: 'desc' } 
   });
 
   return (

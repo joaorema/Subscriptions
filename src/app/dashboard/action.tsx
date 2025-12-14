@@ -9,7 +9,7 @@ export async function deleteSub(formData: FormData) {
 
   try {
     await prisma.subscription.delete({ where: { id: id } });
-    revalidatePath("/dashboard"); // Refresh the dashboard
+    revalidatePath("/dashboard"); 
   } catch (error) {
     console.error("Failed to delete sub:", error);
   }
