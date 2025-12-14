@@ -7,17 +7,17 @@ export default function Loginbox()
         <form action="#">
             <h5 className="text-xl font-semibold text-heading mb-6">Sign in to our platform</h5>
             <div className="mb-4">
-                <label for="email" className="block mb-2.5 text-sm font-medium text-heading">Your email</label>
+                <label typeof="email" className="block mb-2.5 text-sm font-medium text-heading">Your email</label>
                 <input type="email" id="email" className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="example@company.com" required />
             </div>
             <div>
-                <label for="password" className="block mb-2.5 text-sm font-medium text-heading">Your password</label>
+                <label typeof="password" className="block mb-2.5 text-sm font-medium text-heading">Your password</label>
                 <input type="password" id="password" className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="•••••••••" required />
             </div>
             <div className="flex items-start my-6">
                 <div className="flex items-center">
-                    <input id="checkbox-remember" type="checkbox" value="" className="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft">
-                    <label for="checkbox-remember" className="ms-2 text-sm font-medium text-heading">Remember me</label>
+                    <input id="checkbox-remember" type="checkbox" value="" className="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"></input>
+                    <label typeof="checkbox-remember" className="ms-2 text-sm font-medium text-heading">Remember me</label>
                 </div>
                 <a href="#" className="ms-auto text-sm font-medium text-fg-brand hover:underline">Lost Password?</a>
             </div>
