@@ -40,6 +40,10 @@ export default function SearchPage() {
               <option value="Internet">Internet</option>
               <option value="Phone">Phone</option>
               <option value="Rent">Rent</option>
+              <option value="Car">Car</option>
+              <option value="Pets">Pets</option>
+              <option value="Hobbies">Hobbies</option>
+              <option value="Restaurants">Restaurants</option>
               <option value="Insurance">Insurance</option>
               <option value="Groceries">Groceries</option>
               <option value="Others">Others</option>
@@ -83,7 +87,7 @@ export default function SearchPage() {
         {state.searched && (
           <div className="bg-white p-8 rounded-lg shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-500 min-h-[400px] flex flex-col">
             {/* Header */}
-            
+
             <div className="relative z-0 flex justify-between items-center border-b pb-4 mb-6">
               <h2 className="text-2xl font-bold text-gray-800">
                 Results Found
@@ -101,12 +105,10 @@ export default function SearchPage() {
                 </p>
               </div>
             ) : (
-           
               <ul className="space-y-3">
                 {state.bills.map((bill: any) => (
                   <li
                     key={bill.id}
-                    
                     className="group relative flex justify-between items-center p-4 bg-gray-50 hover:bg-blue-50 transition-colors rounded-lg border border-gray-200 z-10 hover:z-20"
                   >
                     {/* Tooltip */}

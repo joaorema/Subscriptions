@@ -56,7 +56,7 @@ export default async function SubscriptionPage()
 
         {/* Start Date */}
         <div>
-          <label className="block text-sm font-bold text-gray-700 mb-1">Next Payment Date</label>
+          <label className="block text-sm font-bold text-gray-700 mb-1">Payment Date</label>
           <input 
             name="nextDate" 
             type="date" 

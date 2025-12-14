@@ -43,10 +43,11 @@ export default function AddBillForm() {
           <option value="Internet">Internet</option>
           <option value="Phone">Phone</option>
           <option value="Rent">Rent</option>
+          <option value="Car">Car</option>
+          <option value="Pets">Pets</option>
+          <option value="Hobbies">Hobbies</option>
+          <option value="Restaurants">Restaurants</option>
           <option value="Insurance">Insurance</option>
-          
-          <option disabled>──────────</option>
-          
           <option value="Groceries">Groceries</option>
           <option value="Others">Others</option>
         </select>
