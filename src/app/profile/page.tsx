@@ -17,7 +17,8 @@ export default async function ProfilePage() {
     where: { id: userId }
   });
   
-  if (!user) return null; // Handle case where user isn't in DB
+  if (!user) 
+    return null; 
 
   const date = user.createdAt.toLocaleDateString('en-GB', {
     day: 'numeric',

@@ -1,7 +1,7 @@
-"use client"; // This directive is crucial for interactivity
+"use client"; 
 
 import React, { useState } from "react";
-import Link from "next/link"; // Better than <a> for Next.js navigation
+import Link from "next/link"; 
 
 export default function NavbarClient({ isLoggedIn }: { isLoggedIn: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ export default function NavbarClient({ isLoggedIn }: { isLoggedIn: boolean }) {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // The list of links allows us to map over them to avoid repetitive code
+
   const links = [
     { href: "/profile", label: "Profile" },
     { href: "/dashboard", label: "Dashboard" },
@@ -20,17 +20,17 @@ export default function NavbarClient({ isLoggedIn }: { isLoggedIn: boolean }) {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md font-mono">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo / Home Link */}
-          <Link href="/" className="font-bold text-xl text-black">
-            MyApp
+      
+          <Link href="/" className="text-xl text-gray-700 hover:text-blue-600 hover:bg-gray-50" >
+            Home
           </Link>
 
           {/* Desktop Menu (Hidden on Mobile) */}
           <div className="hidden md:flex space-x-8 items-center">
-            {isLoggedIn ? (
+            {isLoggedIn && (
               links.map((link) => (
                 <Link
                   key={link.href}
@@ -40,13 +40,6 @@ export default function NavbarClient({ isLoggedIn }: { isLoggedIn: boolean }) {
                   {link.label}
                 </Link>
               ))
-            ) : (
-              <Link
-                href="/login"
-                className="bg-black text-white px-4 py-2 rounded font-bold hover:bg-gray-800"
-              >
-                Login
-              </Link>
             )}
           </div>
 
@@ -81,7 +74,7 @@ export default function NavbarClient({ isLoggedIn }: { isLoggedIn: boolean }) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)} // Close menu on click
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 font-mono"
                 >
                   {link.label}
                 </Link>

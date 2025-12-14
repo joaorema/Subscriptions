@@ -9,7 +9,8 @@ export default async function DashboardPage()
   const cookieStore = await cookies();
   const userId = cookieStore.get("userId")?.value;
 
-  if (!userId) return <div>Please log in</div>;
+  if (!userId) 
+    return <div>Please log in</div>;
     
   // 1. Fetch Data
   const bills = await prisma.bill.findMany({

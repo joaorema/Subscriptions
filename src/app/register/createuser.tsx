@@ -3,13 +3,15 @@
 import { redirect } from "next/navigation";
 import prisma from "@/lib/prisma";
 
-export async function registerAction(prevState: any, formData: FormData) {
+export async function registerAction(prevState: any, formData: FormData) 
+{
   const email = formData.get("email") as string;
   const username = formData.get("username") as string;
-  const password = formData.get("password") as string; // This now matches the HTML name
+  const password = formData.get("password") as string; //
 
   // Validation
-  if (!password || password.length < 10) {
+  if (!password || password.length < 10) 
+  {
     return { message: "Password must be at least 10 characters long" };
   }
 
@@ -26,9 +28,8 @@ export async function registerAction(prevState: any, formData: FormData) {
   catch (e) 
   {
     
-    return { message: "❌ Email already registered or DB error" };
+    return { message: "Email already registered or DB error" };
   }
 
-  
   redirect("/login");
 }

@@ -10,6 +10,17 @@ export async function logoutAction() {
   redirect('/');
 }
 
+export async function getName() {
+  const cookieStore = await cookies();
+  const userId = cookieStore.get('userId')?.value;
+
+  const username = await prisma.user.findUnique({
+    where: {id : userId}
+  })
+  const name = username?.name;
+  return name;
+}
+
 export async function loginAction(prevState: any, formData: FormData) {
   const password = formData.get("password") as string;
   const username = formData.get("username") as string;
